@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+        <!-- VK -->
+        <symbol id="vk" viewBox="0 0 24 24">
+          <path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 4.157-5.336 2.073-5.336h-3.981c-.772 0-.828.435-1.103 1.083-.995 2.347-2.886 5.387-3.604 4.922-.751-.485-.407-2.406-.35-5.261.015-.754.011-1.271-1.141-1.539-.629-.145-1.241-.205-1.809-.205-2.273 0-3.841.953-2.95 1.119 1.571.293 1.42 3.692 1.054 5.16-.638 2.556-3.036-2.024-4.035-4.305-.241-.548-.315-.974-1.175-.974h-3.255c-.492 0-.787.16-.787.516 0 .602 2.96 6.72 5.786 9.77 2.756 2.975 5.48 2.708 7.376 2.708z"/>
+        </symbol>
+        
+        <!-- YouTube -->
+        <symbol id="youtube" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </symbol>
+        
+        <!-- Telegram -->
+        <symbol id="telegram" viewBox="0 0 24 24">
+          <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.429.26l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+        </symbol>
+        
+      </svg>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS - магазин электроники</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="modern-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="DNS - технологии для жизни" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="header-content">
+                <div class="welcome-message" id="welcomeMessage">
+                    <p>Добро пожаловать в официальный интернет-магазин DNS!</p>
+                </div>
+                
+                <div class="header-controls">
+                    <div class="dropdown-nav">
+                        <button class="dropdown-btn" id="currentPageBtn">Меню</button>
+                        <div class="dropdown-content">
+                            <a href="index.html" class="dropdown-link">Главная</a>
+                            <a href="catalog.html" class="dropdown-link">Каталог</a>
+                            <a href="contacts.html" class="dropdown-link">Контакты</a>
+                        </div>
+                    </div>
+                    
+                    <button class="mobile-menu-btn" aria-label="Открыть меню">
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="dropdown">
+            <button class="dropdown-btn" id="currentPageBtn">Главная</button>
+            <div class="dropdown-content">
+                <a href="index.html" class="dropdown-link">Главная</a>
+                <a href="catalog.php" class="dropdown-link">Каталог</a>
+                <a href="contacts.html" class="dropdown-link">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const btn = document.getElementById('currentPageBtn');
+            const links = document.querySelectorAll('.dropdown-link');
+            
+            // Устанавливаем текущую страницу
+            links.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('current');
+                    btn.textContent = link.textContent;
+                }
+            });
+            
+            // Если страница не найдена в списке
+            if (btn.textContent === 'Главная' && currentPath !== 'index.html') {
+                btn.textContent = 'Меню';
+            }
+        });
+        </script>
+
+    <main class="main-content">
+        <!-- О компании -->
+        <section class="about-section">
+            <h2 class="section-title">О нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>DNS - одна из крупнейших розничных сетей по продаже цифровой и бытовой техники в России. Мы предлагаем широкий ассортимент продукции по доступным ценам с гарантией качества.</p>
+                    <div class="about-image">
+                        <img src="images/L_height.png" alt="О компании DNS">
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- История компании -->
+        <section class="history-section">
+            <h2 class="section-title">История фирмы</h2>
+            <div class="history-content">
+                <div class="history-image">
+                    <img src="images/DNS.jpg" alt="История DNS">
+                </div>
+                <div class="history-text">
+                    <p>Компания основана в 1998 году. Начиная с небольшого магазина в Новосибирске, DNS выросла в федеральную сеть с сотнями магазинов по всей стране.</p>
+                    <ul class="history-milestones">
+                        <li><span class="year">1998</span> - Основание компании</li>
+                        <li><span class="year">2005</span> - Открытие 100-го магазина</li>
+                        <li><span class="year">2012</span> - Запуск интернет-магазина</li>
+                        <li><span class="year">2023</span> - Более 1000 магазинов по России</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Наши сотрудники -->
+        <section class="team-section">
+            <h2 class="section-title">Наши сотрудники</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="images/member_1.jpg" alt="Сотрудник DNS">
+                    </div>
+                    <h3>Иван Петров</h3>
+                    <p>Технический специалист</p>
+                    <p>Опыт работы: 8 лет</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="images/member_2.jpg" alt="Сотрудник DNS">
+                    </div>
+                    <h3>Елена Смирнова</h3>
+                    <p>Менеджер по продажам</p>
+                    <p>Опыт работы: 5 лет</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="images/member_3.jpg" alt="Сотрудник DNS">
+                    </div>
+                    <h3>Алексей Иванов</h3>
+                    <p>Специалист поддержки</p>
+                    <p>Опыт работы: 3 года</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> 8-800-777-07-77</li>
+                    <li><i class="fas fa-envelope"></i> info@dns-shop.ru</li>
+                    <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Ленина, д. 1</li>
+                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-21:00, Сб-Вс: 10:00-20:00</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Полезные ссылки</h3>
+                <ul class="footer-links">
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Вакансии</a></li>
+                    <li><a href="#">Доставка и оплата</a></li>
+                    <li><a href="#">Гарантия</a></li>
+                    <li><a href="#">Бонусная программа</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Мы в соцсетях</h3>
+                <div class="social-links">
+                  <a href="#" class="social-link vk" aria-label="ВКонтакте">
+                    <svg class="social-icon"><use xlink:href="#vk"></use></svg>
+                  </a>
+                  <a href="#" class="social-link youtube" aria-label="YouTube">
+                    <svg class="social-icon"><use xlink:href="#youtube"></use></svg>
+                  </a>
+                  <a href="#" class="social-link telegram" aria-label="Telegram">
+                    <svg class="social-icon"><use xlink:href="#telegram"></use></svg>
+                  </a>
+                </div>
+              </div>
+                
+            
+            <div class="footer-section">
+                <h3>Подписка на новости</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Ваш email" required>
+                    <button type="submit">Подписаться</button>
+                </form>
+                <p class="subscribe-text">Получайте первыми информацию о скидках и специальных предложениях</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2023 DNS. Все права защищены.</p>
+            </div>
+            <div class="legal-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Пользовательское соглашение</a>
+                <a href="#">Карта сайта</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

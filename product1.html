@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+        <!-- VK -->
+        <symbol id="vk" viewBox="0 0 24 24">
+          <path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 4.157-5.336 2.073-5.336h-3.981c-.772 0-.828.435-1.103 1.083-.995 2.347-2.886 5.387-3.604 4.922-.751-.485-.407-2.406-.35-5.261.015-.754.011-1.271-1.141-1.539-.629-.145-1.241-.205-1.809-.205-2.273 0-3.841.953-2.95 1.119 1.571.293 1.42 3.692 1.054 5.16-.638 2.556-3.036-2.024-4.035-4.305-.241-.548-.315-.974-1.175-.974h-3.255c-.492 0-.787.16-.787.516 0 .602 2.96 6.72 5.786 9.77 2.756 2.975 5.48 2.708 7.376 2.708z"/>
+        </symbol>
+        
+        <!-- YouTube -->
+        <symbol id="youtube" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </symbol>
+        
+        <!-- Telegram -->
+        <symbol id="telegram" viewBox="0 0 24 24">
+          <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.429.26l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+        </symbol>
+        
+      </svg>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ноутбук ASUS - DNS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="modern-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="DNS - технологии для жизни" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="header-content">
+                
+                <div class="header-controls">
+                    <div class="dropdown-nav">
+                        <button class="dropdown-btn" id="currentPageBtn">Меню</button>
+                        <div class="dropdown-content">
+                            <a href="index.html" class="dropdown-link">Главная</a>
+                            <a href="catalog.html" class="dropdown-link">Каталог</a>
+                            <a href="contacts.html" class="dropdown-link">Контакты</a>
+                        </div>
+                    </div>
+                    
+                    <button class="mobile-menu-btn" aria-label="Открыть меню">
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const btn = document.getElementById('currentPageBtn');
+            const links = document.querySelectorAll('.dropdown-link');
+            
+            // Устанавливаем текущую страницу
+            links.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('current');
+                    btn.textContent = link.textContent;
+                }
+            });
+            
+            // Если страница не найдена в списке
+            if (btn.textContent === 'Главная' && currentPath !== 'index.html') {
+                btn.textContent = 'Меню';
+            }
+        });
+        </script>
+
+<main class="product-page">
+    <!-- Хлебные крошки -->
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <a href="index.html">Главная</a>
+        <span>/</span>
+        <a href="catalog.html">Каталог</a>
+        <span>/</span>
+        <a href="#">Ноутбуки</a>
+        <span>/</span>
+        <span>ASUS VivoBook 15</span>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Переключение изображений в галерее
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('mainImage');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Удаляем active у всех миниатюр
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    
+                    // Добавляем active текущей
+                    this.classList.add('active');
+                    
+                    // Обновляем основное изображение
+                    const newImage = this.getAttribute('data-image');
+                    mainImage.src = `images/products/${newImage}`;
+                    mainImage.alt = this.querySelector('img').alt;
+                });
+            });
+            
+            // Переключение табов
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Удаляем active у всех кнопок и контента
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Добавляем active текущим
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Добавление в избранное
+            const wishlistBtn = document.querySelector('.wishlist-btn');
+            wishlistBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const svg = this.querySelector('svg');
+                
+                if (this.classList.contains('active')) {
+                    svg.style.fill = '#ff6600';
+                    svg.style.stroke = '#ff6600';
+                } else {
+                    svg.style.fill = 'none';
+                    svg.style.stroke = '#2c3e50';
+                }
+            });
+        });
+    </script>
+    <!-- Основная информация о товаре -->
+    <section class="product-main">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="images/asuslogo.jpg" alt="Ноутбук ASUS VivoBook 15" id="mainImage">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="product-header">
+                <h1>Ноутбук ASUS VivoBook 15 X515EA-BQ1114W</h1>
+                <div class="product-sku">Артикул: ASUSX515EA</div>
+                <div class="product-rating">
+                    ★★★★☆ <span class="reviews">142 отзыва</span>
+                    <a href="#reviews" class="review-link">Оставить отзыв</a>
+                </div>
+            </div>
+
+            <div class="price-block">
+                <div class="current-price">45 990 ₽</div>
+                <div class="old-price">54 990 ₽</div>
+                <div class="discount-badge">-16%</div>
+            </div>
+
+            <div class="product-actions">
+                <button class="buy-now">Купить сейчас</button>
+                <button class="add-to-cart">В корзину</button>
+                <button class="wishlist-btn" aria-label="Добавить в избранное">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="delivery-info">
+                <div class="delivery-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M19 7h-3V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v1H1v11a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V7zM8 6h8v1H8zm11 11H5v-2h14zm0-4H5V9h14z"/></svg>
+                    <span>Доставка завтра</span>
+                </div>
+                <div class="delivery-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>
+                    <span>Рассрочка 0-0-6</span>
+                </div>
+            </div>
+
+            <div class="product-features">
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    <span>В наличии в 12 магазинах</span>
+                </div>
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    <span>Официальная гарантия 2 года</span>
+                </div>
+                <div class="feature">
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    <span>Бесплатная доставка</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Детальное описание -->
+    <section class="product-details">
+        <div class="details-tabs">
+            <button class="tab-btn active" data-tab="description">Описание</button>
+            <button class="tab-btn" data-tab="specs">Характеристики</button>
+        </div>
+
+        <div class="tab-content active" id="description">
+            <h2>Описание ноутбука ASUS VivoBook 15</h2>
+            <p>Стильный и производительный ноутбук ASUS VivoBook 15 X515EA создан для работы и развлечений. Тонкий корпус весом всего 1.8 кг и узкие рамки NanoEdge обеспечивают компактность и мобильность.</p>
+            
+            <h3>Ключевые особенности:</h3>
+            <ul class="feature-list">
+                <li>15.6-дюймовый Full HD экран с антибликовым покрытием</li>
+                <li>Процессор Intel Core i3-1115G4 (2 ядра, 4 потока, до 4.1 ГГц)</li>
+                <li>8 ГБ оперативной памяти DDR4</li>
+                <li>Быстрый SSD накопитель 256 ГБ</li>
+                <li>Эргономичная клавиатура с подсветкой</li>
+                <li>До 8 часов автономной работы</li>
+            </ul>
+            
+            <div class="product-highlights">
+                <div class="highlight-card">
+                    <svg width="40" height="40" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                    <h4>Комплектация</h4>
+                    <p>Ноутбук, блок питания, документация, гарантийный талон</p>
+                </div>
+                <div class="highlight-card">
+                    <svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>
+                    <h4>Гарантия</h4>
+                    <p>24 месяца официальной гарантии от производителя</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="specs">
+            <h2>Технические характеристики</h2>
+            <table class="specs-table">
+                <tr>
+                    <th>Процессор</th>
+                    <td>Intel Core i3-1115G4 (3.0 - 4.1 ГГц)</td>
+                </tr>
+                <tr>
+                    <th>Оперативная память</th>
+                    <td>8 ГБ DDR4</td>
+                </tr>
+                <tr>
+                    <th>Накопитель</th>
+                    <td>SSD 256 ГБ</td>
+                </tr>
+                <tr>
+                    <th>Экран</th>
+                    <td>15.6" IPS, 1920×1080, антибликовый</td>
+                </tr>
+                <tr>
+                    <th>Графика</th>
+                    <td>Intel UHD Graphics</td>
+                </tr>
+                <tr>
+                    <th>Вес</th>
+                    <td>1.8 кг</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="tab-content" id="reviews">
+            <h2>Отзывы о товаре</h2>
+            <div class="review-form">
+                <h3>Оставить отзыв</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="review-name">Ваше имя</label>
+                        <input type="text" id="review-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-rating">Оценка</label>
+                        <select id="review-rating" required>
+                            <option value="5">★★★★★ Отлично</option>
+                            <option value="4">★★★★☆ Хорошо</option>
+                            <option value="3">★★★☆☆ Удовлетворительно</option>
+                            <option value="2">★★☆☆☆ Плохо</option>
+                            <option value="1">★☆☆☆☆ Ужасно</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-text">Отзыв</label>
+                        <textarea id="review-text" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-review">Отправить отзыв</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Похожие товары -->
+    <section class="related-products">
+        <h2>С этим товаром покупают</h2>
+        <div class="related-grid">
+            <div class="related-item">
+                <img src="images/products/mouse.jpg" alt="Беспроводная мышь">
+                <h3>Мышь беспроводная Logitech M220</h3>
+                <div class="price">1 990 ₽</div>
+            </div>
+            <div class="related-item">
+                <img src="images/products/bag.jpg" alt="Сумка для ноутбука">
+                <h3>Сумка для ноутбука 15.6"</h3>
+                <div class="price">2 490 ₽</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> 8-800-777-07-77</li>
+                    <li><i class="fas fa-envelope"></i> info@dns-shop.ru</li>
+                    <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Ленина, д. 1</li>
+                    <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-21:00, Сб-Вс: 10:00-20:00</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Полезные ссылки</h3>
+                <ul class="footer-links">
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Вакансии</a></li>
+                    <li><a href="#">Доставка и оплата</a></li>
+                    <li><a href="#">Гарантия</a></li>
+                    <li><a href="#">Бонусная программа</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Мы в соцсетях</h3>
+                <div class="social-links">
+                  <a href="#" class="social-link vk" aria-label="ВКонтакте">
+                    <svg class="social-icon"><use xlink:href="#vk"></use></svg>
+                  </a>
+                  <a href="#" class="social-link youtube" aria-label="YouTube">
+                    <svg class="social-icon"><use xlink:href="#youtube"></use></svg>
+                  </a>
+                  <a href="#" class="social-link telegram" aria-label="Telegram">
+                    <svg class="social-icon"><use xlink:href="#telegram"></use></svg>
+                  </a>
+                </div>
+              </div>
+                
+            
+            <div class="footer-section">
+                <h3>Подписка на новости</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Ваш email" required>
+                    <button type="submit">Подписаться</button>
+                </form>
+                <p class="subscribe-text">Получайте первыми информацию о скидках и специальных предложениях</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2023 DNS. Все права защищены.</p>
+            </div>
+            <div class="legal-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Пользовательское соглашение</a>
+                <a href="#">Карта сайта</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

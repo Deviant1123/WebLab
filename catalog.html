@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+        <!-- VK -->
+        <symbol id="vk" viewBox="0 0 24 24">
+          <path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 4.157-5.336 2.073-5.336h-3.981c-.772 0-.828.435-1.103 1.083-.995 2.347-2.886 5.387-3.604 4.922-.751-.485-.407-2.406-.35-5.261.015-.754.011-1.271-1.141-1.539-.629-.145-1.241-.205-1.809-.205-2.273 0-3.841.953-2.95 1.119 1.571.293 1.42 3.692 1.054 5.16-.638 2.556-3.036-2.024-4.035-4.305-.241-.548-.315-.974-1.175-.974h-3.255c-.492 0-.787.16-.787.516 0 .602 2.96 6.72 5.786 9.77 2.756 2.975 5.48 2.708 7.376 2.708z"/>
+        </symbol>
+        
+        <!-- YouTube -->
+        <symbol id="youtube" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </symbol>
+        
+        <!-- Telegram -->
+        <symbol id="telegram" viewBox="0 0 24 24">
+          <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.429.26l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+        </symbol>
+        
+      </svg>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - DNS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="modern-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="DNS - технологии для жизни" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="header-content">
+                
+                <div class="header-controls">
+                    <div class="dropdown-nav">
+                        <button class="dropdown-btn" id="currentPageBtn">Меню</button>
+                        <div class="dropdown-content">
+                            <a href="index.html" class="dropdown-link">Главная</a>
+                            <a href="catalog.html" class="dropdown-link">Каталог</a>
+                            <a href="contacts.html" class="dropdown-link">Контакты</a>
+                        </div>
+                    </div>
+                    
+                    <button class="mobile-menu-btn" aria-label="Открыть меню">
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const btn = document.getElementById('currentPageBtn');
+            const links = document.querySelectorAll('.dropdown-link');
+            
+            // Устанавливаем текущую страницу
+            links.forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('current');
+                    btn.textContent = link.textContent;
+                }
+            });
+            
+            // Если страница не найдена в списке
+            if (btn.textContent === 'Главная' && currentPath !== 'index.html') {
+                btn.textContent = 'Меню';
+            }
+        });
+    </script>
+
+
+<main class="catalog-main">
+    <!-- Шапка каталога с поиском и сортировкой -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a>
+        <span>/</span>
+        <span>Каталог</span>
+    </nav>
+    
+    <div class="catalog-header">
+        <h1>Каталог электроники</h1>
+        <div class="catalog-controls">
+            <div class="sort-filter">
+                <select class="sort-select" aria-label="Сортировка">
+                    <option value="popular">По популярности</option>
+                    <option value="price-asc">По возрастанию цены</option>
+                    <option value="price-desc">По убыванию цены</option>
+                    <option value="newest">Сначала новинки</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="search-box">
+        <form id="searchForm">
+            <input type="text" name="q" id="searchInput" placeholder="Поиск по каталогу..." 
+                   aria-label="Поиск товаров" autocomplete="off">
+            <button type="submit" class="search-btn" aria-label="Искать">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </form>
+        <div id="searchResults" class="search-results"></div>
+    </div>
+
+    <!-- Основное содержимое с фильтрами и товарами -->
+    <div class="catalog-content">
+        
+        <!-- Боковая панель фильтров -->
+        <aside class="catalog-filters">
+            <div class="filter-section">
+                <h3>Категории</h3>
+                <ul class="filter-list">
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="laptops">
+                            Ноутбуки
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="smartphones">
+                            Смартфоны
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="tv">
+                            Телевизоры
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="headphones">
+                            Наушники
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3>Цена, ₽</h3>
+                <div class="price-range">
+                    <input type="number" placeholder="От" class="price-input" min="0" aria-label="Минимальная цена">
+                    <span>-</span>
+                    <input type="number" placeholder="До" class="price-input" min="0" aria-label="Максимальная цена">
+                </div>
+            </div>
+
+            <button class="apply-filters" aria-label="Применить фильтры">Применить</button>
+        </aside>
+
+        <!-- Блок с товарами и пагинацией -->
+        <div class="products-wrapper">
+            <!-- Сетка товаров -->
+            <div class="products-grid">
+                <!-- Карточка товара 1 -->
+                <article class="product-card">
+                    <a href="product1.html">
+                        <div class="product-badge discount">-15%</div>
+                    <div class="product-image">
+                        <img src="images/asuslogo.jpg" alt="Ноутбук ASUS VivoBook 15" loading="lazy">
+                        <button class="quick-view" aria-label="Быстрый просмотр">Быстрый просмотр</button>
+                    </a>
+                            
+                    </div>
+                    <div class="product-info">
+                        <h3>ASUS VivoBook 15 X515EA</h3>
+                        <div class="product-specs">
+                            <span>15.6" IPS • i3-1115G4 • 8GB • 256GB SSD</span>
+                        </div>
+                        <div class="product-rating" aria-label="Рейтинг 4 из 5">
+                            ★★★★☆ <span class="reviews">(124)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price" aria-label="Цена 45 990 рублей">45 990 ₽</span>
+                            <span class="old-price">54 990 ₽</span>
+                        </div>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </article>
+
+                <!-- Карточка товара 2 -->
+                <article class="product-card">
+                    <div class="product-badge new">Новинка</div>
+                    <div class="product-image">
+                        <img src="images/samsungPhone.jpg" alt="Смартфон Samsung Galaxy A54" loading="lazy">
+                        <button class="quick-view" aria-label="Быстрый просмотр">Быстрый просмотр</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Samsung Galaxy A54 5G</h3>
+                        <div class="product-specs">
+                            <span>6.4" AMOLED • 128GB • 5000mAh</span>
+                        </div>
+                        <div class="product-rating" aria-label="Рейтинг 5 из 5">
+                            ★★★★★ <span class="reviews">(89)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price" aria-label="Цена 32 990 рублей">32 990 ₽</span>
+                        </div>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </article>
+
+                <!-- Карточка товара 3 -->
+                <article class="product-card">
+                    <div class="product-badge bestseller">Хит</div>
+                    <div class="product-image">
+                        <img src="images/sonyHeadphone.jpg" alt="Наушники Sony WH-CH720N" loading="lazy">
+                        <button class="quick-view" aria-label="Быстрый просмотр">Быстрый просмотр</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sony WH-CH720N</h3>
+                        <div class="product-specs">
+                            <span>Беспроводные • ANC • 50ч работы</span>
+                        </div>
+                        <div class="product-rating" aria-label="Рейтинг 4 из 5">
+                            ★★★★☆ <span class="reviews">(217)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price" aria-label="Цена 14 990 рублей">14 990 ₽</span>
+                            <span class="old-price">17 990 ₽</span>
+                        </div>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Пагинация -->
+            <nav class="pagination" aria-label="Навигация по страницам">
+                <button class="pagination-prev" aria-label="Предыдущая страница">←</button>
+                <button class="pagination-btn active" aria-label="Страница 1" aria-current="page">1</button>
+                <button class="pagination-btn" aria-label="Страница 2">2</button>
+                <button class="pagination-btn" aria-label="Страница 3">3</button>
+                <span class="pagination-dots">...</span>
+                <button class="pagination-btn" aria-label="Страница 10">10</button>
+                <button class="pagination-next" aria-label="Следующая страница">→</button>
+            </nav>
+        </div>
+    </div>
+</main>
+
+
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> 8-800-777-07-77</li>
+                        <li><i class="fas fa-envelope"></i> info@dns-shop.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Ленина, д. 1</li>
+                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-21:00, Сб-Вс: 10:00-20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Полезные ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                        <li><a href="#">Бонусная программа</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Мы в соцсетях</h3>
+                    <div class="social-links">
+                      <a href="#" class="social-link vk" aria-label="ВКонтакте">
+                        <svg class="social-icon"><use xlink:href="#vk"></use></svg>
+                      </a>
+                      <a href="#" class="social-link youtube" aria-label="YouTube">
+                        <svg class="social-icon"><use xlink:href="#youtube"></use></svg>
+                      </a>
+                      <a href="#" class="social-link telegram" aria-label="Telegram">
+                        <svg class="social-icon"><use xlink:href="#telegram"></use></svg>
+                      </a>
+                    </div>
+                  </div>
+                    
+                
+                <div class="footer-section">
+                    <h3>Подписка на новости</h3>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit">Подписаться</button>
+                    </form>
+                    <p class="subscribe-text">Получайте первыми информацию о скидках и специальных предложениях</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 DNS. Все права защищены.</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Пользовательское соглашение</a>
+                    <a href="#">Карта сайта</a>
+                </div>
+            </div>
+        </footer>
+        <!-- Остальная часть файла без изменений -->
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const searchForm = document.getElementById('searchForm');
+                const searchInput = document.getElementById('searchInput');
+                const searchResults = document.getElementById('searchResults');
+                const productsGrid = document.querySelector('.products-grid');
+                const originalProducts = productsGrid.innerHTML;
+                let currentSearchContainer = null;
+                let currentClearButton = null;
+                let lastSearchQuery = '';
+            
+                function showLoading() {
+                    searchResults.innerHTML = '<div class="loading">Поиск...</div>';
+                    searchResults.classList.add('active');
+                }
+            
+                function clearResults() {
+                    searchResults.innerHTML = '';
+                    searchResults.classList.remove('active');
+                }
+            
+                function restoreOriginalProducts() {
+                    // Удаляем текущие результаты поиска, если они есть
+                    if (currentSearchContainer) {
+                        currentSearchContainer.remove();
+                        currentSearchContainer = null;
+                    }
+                    if (currentClearButton) {
+                        currentClearButton.remove();
+                        currentClearButton = null;
+                    }
+                    
+                    // Восстанавливаем оригинальные товары
+                    productsGrid.style.display = 'grid';
+                    productsGrid.innerHTML = originalProducts;
+                }
+            
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const query = searchInput.value.trim();
+                    
+                    // Если запрос не изменился, ничего не делаем
+                    if (query === lastSearchQuery) {
+                        return;
+                    }
+                    
+                    lastSearchQuery = query;
+                    
+                    if (query.length < 3) {
+                        searchResults.innerHTML = '<div class="error">Введите минимум 3 символа</div>';
+                        searchResults.classList.add('active');
+                        restoreOriginalProducts();
+                        return;
+                    }
+            
+                    showLoading();
+                    
+                    fetch(`search.php?q=${encodeURIComponent(query)}`)
+                        .then(response => {
+                            if (!response.ok) throw new Error('Ошибка сети');
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.success) {
+                                // Удаляем предыдущие результаты поиска
+                                restoreOriginalProducts();
+                                
+                                if (data.count > 0) {
+                                    // Скрываем оригинальные товары
+                                    productsGrid.style.display = 'none';
+                                    
+                                    // Создаем контейнер для результатов поиска
+                                    currentSearchContainer = document.createElement('div');
+                                    currentSearchContainer.className = 'products-grid';
+                                    currentSearchContainer.style.marginTop = '1rem';
+                                    
+                                    // Заполняем результаты поиска (как вы просили не менять)
+                                    data.results.forEach(product => {
+                                        currentSearchContainer.innerHTML += `
+                                            <article class="product-card">
+                                                <a href="${product.url}">
+                                                    <div class="product-image">
+                                                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                                                    </div>
+                                                </a>
+                                                <div class="product-info">
+                                                    <h3>${product.name}</h3>
+                                                    <div class="product-specs">
+                                                        <span>${product.category}</span>
+                                                        <span>${product.description}</span>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span class="current-price">${product.price}</span>
+                                                    </div>
+                                                    <button class="add-to-cart">В корзину</button>
+                                                </div>
+                                            </article>
+                                        `;
+                                    });
+                                    
+                                    // Вставляем перед пагинацией
+                                    const pagination = document.querySelector('.pagination');
+                                    pagination.parentNode.insertBefore(currentSearchContainer, pagination);
+                                    
+                                    // Создаем кнопку "Очистить поиск"
+                                    currentClearButton = document.createElement('button');
+                                    currentClearButton.className = 'clear-search';
+                                    currentClearButton.textContent = 'Очистить поиск';
+                                    currentClearButton.style.margin = '1rem auto';
+                                    currentClearButton.style.display = 'block';
+                                    currentClearButton.style.padding = '0.5rem 1rem';
+                                    currentClearButton.style.background = '#f1f1f1';
+                                    currentClearButton.style.border = 'none';
+                                    currentClearButton.style.borderRadius = '4px';
+                                    currentClearButton.style.cursor = 'pointer';
+                                    
+                                    currentClearButton.addEventListener('click', function() {
+                                        restoreOriginalProducts();
+                                        searchInput.value = '';
+                                        lastSearchQuery = '';
+                                        clearResults();
+                                    });
+                                    
+                                    pagination.parentNode.insertBefore(currentClearButton, pagination);
+                                    
+                                    clearResults();
+                                } else {
+                                    searchResults.innerHTML = '<div class="no-results">Ничего не найдено</div>';
+                                    searchResults.classList.add('active');
+                                }
+                            } else {
+                                searchResults.innerHTML = `<div class="error">${data.message}</div>`;
+                                searchResults.classList.add('active');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Ошибка:', error);
+                            searchResults.innerHTML = '<div class="error">Ошибка соединения с сервером</div>';
+                            searchResults.classList.add('active');
+                        });
+                });
+            
+                // Закрытие результатов при клике вне
+                document.addEventListener('click', function(e) {
+                    if (!searchForm.contains(e.target)) {
+                        clearResults();
+                    }
+                });
+            
+                // Динамическая подгрузка при вводе
+                searchInput.addEventListener('input', function() {
+                    const query = this.value.trim();
+                    
+                    if (query.length >= 3) {
+                        searchForm.dispatchEvent(new Event('submit'));
+                    } else if (query.length === 0) {
+                        restoreOriginalProducts();
+                        lastSearchQuery = '';
+                        clearResults();
+                    }
+                });
+            });
+            </script>
+    
+        
+</body>
+</html>
